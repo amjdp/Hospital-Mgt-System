@@ -1,0 +1,80 @@
+{% extends 'doctor/doctor_home.html' %}
+{% load static %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+
+<section class="section contact-info pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-sm-8 col-md-8">
+                <div class="contact-block mb-4 mb-lg-0">
+                    <img src="{% static 'images/team/1.jpg' %}" alt="doctor-image" class="img-fluid w-80">
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-8 col-md-8">
+                <div class="contact-block mb-4 mb-lg-0">
+                    <h4 class="mb-0">Thomas Henry</h4> <br>
+                    <p>Cardiology</p><br>
+                    <p>Novena Hospital</p> <br>
+                    <div class="btn-container ">
+                        <a href="{% url 'patient:appointment' %}" target="_blank"
+                            class="btn btn-main-2 btn-icon btn-round-full"> Book an appoinment</a>
+                    </div> <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section contact-info pb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-sm-10 col-md-10">
+                <h2 class="mb-2 title-color">About</h2>
+                <hr>
+                <p>
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum perferendis deleniti ipsum
+                    reiciendis veritatis
+                    nostrum labore quas, provident quos rem laudantium possimus laborum natus, commodi maxime aspernatur
+                    fugiat
+                    consequuntur hic odit iure cumque eos neque? Voluptatibus ipsa quos qui asperiores voluptates?
+                    Beatae quisquam
+                    ut nam perspiciatis provident voluptatibus excepturi qui?
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 col-sm-10 col-md-10">
+                <h2 class="mb-2 title-color">Expertise</h2>
+                <p>
+                <ul class="list-styled footer-menu">
+                    <li><a href="#">Beating Heart Surgery</a></li>
+                    <li><a href="#">OPCAB (Off Pump Coronary Artery Bypass) Surgeries</a></li>
+                    <li><a href="#">Minimally Invasive Cardiac Surgery</a></li>
+                    <li><a href="#"> Right Anterior Mini Thoracotomy for closure of ASD</a></li>
+                </ul>
+            </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-8 col-sm-10 col-md-10">
+                <h2 class="mb-2 title-color">Qualification</h2>
+                <hr>
+                <p>
+                    MBBS, DNB, MCh, MNAMS, FIACS, FRCS
+                </p>
+            </div>
+        </div>
+        
+
+       
+    </div>
+</section>
+
+
+{% endblock %}

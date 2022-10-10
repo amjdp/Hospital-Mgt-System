@@ -1,0 +1,179 @@
+{% extends 'common/index.html' %}
+{% load static %}
+
+{% block header %}
+{% endblock %}
+
+
+{% block content %}
+
+	<nav class="navbar navbar-expand-lg navigation" id="navbar">
+		<div class="container">
+		 	 <a class="navbar-brand" href="{% url 'com-home' %}">
+			  	<img src="{% static 'images/logo.png' %}" alt="" class="img-fluid">
+			  </a>
+
+		  	<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="icofont-navigation-menu"></span>
+		  </button>
+	  
+		  <div class="collapse navbar-collapse" id="navbarmain">
+			<ul class="navbar-nav ml-auto">
+			  <li class="nav-item active">
+				<a class="nav-link" href="{% url 'com-home' %}">Home</a>
+			  </li>
+			   <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
+			    <li class="nav-item"><a class="nav-link" href="{% url 'services' %}">Services</a></li>
+
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="{% url 'depts' %}" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Department <i class="icofont-thin-down"></i></a>
+					<ul class="dropdown-menu" aria-labelledby="dropdown02">
+						<li><a class="dropdown-item" href="{% url 'depts' %}">Heart care</a></li>
+						<li><a class="dropdown-item" href="{% url 'depts' %}">Women care</a></li>
+						<li><a class="dropdown-item" href="{% url 'depts' %}">child care</a></li>
+						<li><a class="dropdown-item" href="{% url 'depts' %}">Neuro Science</a></li>
+						<li><a class="dropdown-item" href="{% url 'depts' %}">Liver and gastro science</a></li>
+						<li><a class="dropdown-item" href="{% url 'depts' %}">orthopaedics</a></li>
+						<li><a class="dropdown-item" href="{% url 'depts' %}">Renal Care </a></li>
+						<li><a class="dropdown-item" href="{% url 'depts' %}">Endocrine sciences </a></li>
+						<li><a class="dropdown-item" href="{% url 'depts' %}">psychiatry </a></li>
+						<li><a class="dropdown-item" href="{% url 'depts' %}">Surgical oncology </a></li>
+						<li><a class="dropdown-item" href="{% url 'depts' %}">Anaesthesiology </a></li>
+						<li><a class="dropdown-item" href="{% url 'depts' %}">Radiology </a></li>
+						<li><a class="dropdown-item" href="{% url 'depts' %}"> Dermatology</a></li>
+						<li><a class="dropdown-item" href="{% url 'depts' %}"> Blood Bank</a></li>
+						
+					</ul>
+			  	</li>
+
+			  	<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="{% url 'dr' %}" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Doctors <i class="icofont-thin-down"></i></a>
+					<ul class="dropdown-menu" aria-labelledby="dropdown03">
+						<li><a class="dropdown-item" href="{% url 'dr' %}">Find a Doctor </a></li>
+						<li><a class="dropdown-item" href="{% url 'dr' %}">Appoinment</a></li>
+					</ul>
+			  	</li>
+
+				  <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="{% url 'login' %}" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Patients <i class="icofont-thin-down"></i></a>
+					<!-- <ul class="dropdown-menu" aria-labelledby="dropdown05">
+						<li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>	
+					</ul> -->
+			  	</li>
+
+				  <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="{% url 'login' %}" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Staff Login <i class="icofont-thin-down"></i></a>
+					<ul class="dropdown-menu" aria-labelledby="dropdown05">
+						<li><a class="dropdown-item" href="{% url 'login' %}">Doctor</a></li>	
+						<li><a class="dropdown-item" href="{% url 'login' %}">Receptionist</a></li>
+					</ul>
+			  	</li>
+
+			   <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
+			</ul>
+		  </div>
+		</div>
+	</nav>
+</header>
+	
+
+
+<section class="page-title bg-1">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="block text-center">
+          <span class="text-white">All Department</span>
+          <h1 class="text-capitalize mb-5 text-lg">Care Department</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section service-2">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-7 text-center">
+				<div class="section-title">
+					<h2>Award winning patient care</h2>
+					<div class="divider mx-auto my-4"></div>
+					<p>Lets know moreel necessitatibus dolor asperiores illum possimus sint voluptates incidunt molestias nostrum laudantium. Maiores porro cumque quaerat.</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-4 col-md-6 ">
+				<div class="department-block mb-5">
+					<img src="{% static 'images/service/service-1.jpg' %}" alt="" class="img-fluid w-100">
+					<div class="content">
+						<h4 class="mt-4 mb-2 title-color">Opthomology</h4>
+						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+						<a href="{% url 'dept-single' %}" class="read-more">Learn More  <i class="icofont-simple-right ml-2"></i></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-4 col-md-6">
+				<div class="department-block mb-5">
+					<img src="{% static 'images/service/service-2.jpg' %}" alt="" class="img-fluid w-100">
+					<div class="content">
+						<h4 class="mt-4 mb-2  title-color">Cardiology</h4>
+						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+						<a href="{% url 'dept-single' %}" class="read-more">Learn More <i class="icofont-simple-right ml-2"></i></a>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-lg-4 col-md-6">
+				<div class="department-block mb-5">
+					<img src="{% static 'images/service/service-3.jpg' %}" alt="" class="img-fluid w-100">
+					<div class="content">
+						<h4 class="mt-4 mb-2 title-color">Dental Care</h4>
+						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+						<a href="{% url 'dept-single' %}" class="read-more">Learn More <i class="icofont-simple-right ml-2"></i></a>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="col-lg-4 col-md-6 ">
+				<div class="department-block  mb-5 mb-lg-0">
+					<img src="{% static 'images/service/service-4.jpg' %}" alt="" class="img-fluid w-100">
+					<div class="content">
+						<h4 class="mt-4 mb-2 title-color">Child Care</h4>
+						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+						<a href="{% url 'dept-single' %}" class="read-more">Learn More <i class="icofont-simple-right ml-2"></i></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-lg-4 col-md-6">
+				<div class="department-block mb-5 mb-lg-0">
+					<img src="{% static 'images/service/service-6.jpg' %}" alt="" class="img-fluid w-100">
+					<div class="content">
+						<h4 class="mt-4 mb-2 title-color">Pulmology</h4>
+						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+						<a href="{% url 'dept-single' %}" class="read-more">Learn More <i class="icofont-simple-right ml-2"></i></a>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-lg-4 col-md-6">
+				<div class="department-block mb-5 mb-lg-0">
+					<img src="{% static 'images/service/service-8.jpg' %}" alt="" class="img-fluid w-100">
+					<div class="content">
+						<h4 class="mt-4 mb-2 title-color">Gynecology</h4>
+						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
+						<a href="{% url 'dept-single' %}" class="read-more">Learn More <i class="icofont-simple-right ml-2"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+{% endblock %}
