@@ -19,6 +19,15 @@ def my_bookings(request):
 def prescriptions(request):
     return render(request,'patient/prescriptions.html')
 
+def chpass(request):
+    return render(request,'patient/change-password.html')
+
+def dr_profile(request):
+    return render(request,'patient/dr_profile.html')
+
+def my_profile(request):
+    return render(request,'patient/my-profile.html')
+
 
 
     

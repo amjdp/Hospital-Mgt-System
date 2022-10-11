@@ -22,81 +22,11 @@
 
 	<!-- Main Stylesheet -->
 	<link rel="stylesheet" href=" {% static 'css/style.css' %}">
+	<link rel="stylesheet" href=" {% static 'css/dr-profile-modal.css' %}">
 
-	<style>
-
-/* body {font-family: Arial, Helvetica, sans-serif;} */
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
-
-/* Modal Content */
-.modal-content {
-  position: relative;
-  background-color: #fefefe;
-  margin: auto;
-  padding: 0;
-  border: 1px solid #888;
-  width: 80%;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-  -webkit-animation-name: animatetop;
-  -webkit-animation-duration: 0.4s;
-  animation-name: animatetop;
-  animation-duration: 0.4s
-}
-
-/* Add Animation */
-@-webkit-keyframes animatetop {
-  from {top:-300px; opacity:0} 
-  to {top:0; opacity:1}
-}
-
-@keyframes animatetop {
-  from {top:-300px; opacity:0}
-  to {top:0; opacity:1}
-}
-
-/* The Close Button */
-.close {
-  color: white;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.modal-header {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
-}
-
-.modal-body {padding: 2px 16px;}
-
-.modal-footer {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
-}
-	</style>
+	{% block header %}
+	<!-- Add style tag for individual pages  -->
+	{% endblock %}
 
 </head>
 
@@ -125,6 +55,7 @@
 				</div>
 			</div>
 		</div>
+
 		<nav class="navbar navbar-expand-lg navigation" id="navbar">
 			<div class="container">
 				<a class="navbar-brand" href="">
@@ -139,7 +70,7 @@
 				<div class="collapse navbar-collapse" id="navbarmain">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item active">
-							<a class="nav-link" href="{% url 'com-home' %}">Home</a>
+							<a class="nav-link" href="{% url 'patient: phome' %}">Home</a>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="{% url 'patient:bookings' %}">My Bookings</a>
 						</li>
@@ -149,61 +80,89 @@
 								aria-haspopup="true" aria-expanded="false"> Profile <i
 									class="icofont-thin-down"></i></a>
 							<ul class="dropdown-menu" aria-labelledby="dropdown03">
-								<li><a class="dropdown-item" href=""> My Profile </a></li>
+								<li><a class="dropdown-item" href="{% url 'patient:my-pro' %}"> My Profile </a></li>
 								<li><a class="dropdown-item" href=""> Change Password </a></li>
 							</ul>
 						</li>
 
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="department.html" id="dropdown02"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Doctors <i
-									class="icofont-thin-down"></i></a>
-							<ul class="dropdown-menu" aria-labelledby="dropdown02">
-								<li><a class="dropdown-item" href="">Profile</a></li>
-
-
-								<!-- Trigger/Open The Modal -->
-								<button id="myBtn">Open Modal</button>
-
-								<!-- The Modal -->
-								<div id="myModal" class="modal">
-
-									<!-- Modal content -->
-									<div class="modal-content">
-										<div class="modal-header">
-											<span class="close">&times;</span>
-											<h2>Modal Header</h2>
-										</div>
-										<div class="modal-body">
-											<p>Some text in the Modal Body</p>
-											<p>Some other text...</p>
-										</div>
-										<div class="modal-footer">
-											<h3>Modal Footer</h3>
-										</div>
-									</div>
-
-								</div>
-
-
-
-								<li><a class="dropdown-item" href="">Heart care</a></li>
-								<li><a class="dropdown-item" href="">Women care</a></li>
-								<li><a class="dropdown-item" href="">child care</a></li>
-								<li><a class="dropdown-item" href="">Neuro Science</a></li>
-								<li><a class="dropdown-item" href="">Liver and gastro science</a></li>
-								<li><a class="dropdown-item" href="">orthopaedics</a></li>
-								<li><a class="dropdown-item" href="">Renal Care </a></li>
-								<li><a class="dropdown-item" href="">Endocrine sciences </a></li>
-								<li><a class="dropdown-item" href="">psychiatry </a></li>
-								<li><a class="dropdown-item" href="">Surgical oncology </a></li>
-								<li><a class="dropdown-item" href="">Anaesthesiology </a></li>
-								<li><a class="dropdown-item" href="">Radiology </a></li>
-								<li><a class="dropdown-item" href=""> Dermatology</a></li>
-								<li><a class="dropdown-item" href=""> Blood Bank</a></li>
-
-							</ul>
+						<li class="nav-item"><a class="nav-link" id="myBtn" class="dropdown-item"
+								href="#myModal">Doctors</a>
 						</li>
+
+						<!-- <li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false"><a id="myBtn" class="dropdown-item"
+									href="#myModal"> Doctors</a> <i class="icofont-thin-down"></i></a> -->
+
+						<!-- The Modal -->
+						<div id="myModal" class="modal">
+
+							<!-- Modal content -->
+							<div class="modal-content">
+								<div class="modal-header">
+									<span class="close">&times;</span>
+								</div>
+								<div class="modal-body"> <br><br>
+									<div class="wrapper">
+										<div class="title-text">
+											<div class="title find">
+												Find Doctor
+											</div>
+										</div>
+										<div class="form-container">
+											<div class="form-inner">
+												<form action="#" class="find">
+													<div class="field">
+														<select>
+															<option>Select Doctors</option>
+															<option>Thomas Henry</option>
+															<option>Harrision Samuel</option>
+															<option>Alexandar James</option>
+															<option>Edward john</option>
+															<option>Henry Samuel</option>
+															<option>Thomas Alexander</option>
+															<option>Harisson Thomas</option>
+															<option>Jonas Thomson</option>
+															<option>Henry Forth</option>
+														</select>
+													</div>
+													<div class="field">
+														<select>
+															<option>select department</option>
+															<option>Heart Centre</option>
+															<option>Neuro Science</option>
+															<option>Liver and gastro science</option>
+															<option>Women Care</option>
+															<option>Child Care</option>
+															<option> orthopaedics</option>
+															<option> Renal Care</option>
+															<option> pulmonology</option>
+															<option> Endocrine sciences</option>
+															<option> opthalmology</option>
+															<option>Dental Care</option>
+															<option> Surgical oncology</option>
+															<option> psycyhiatry </option>
+															<option> Anaesthesiology</option>
+															<option> Dermatology</option>
+															<option> Radiology</option>
+														</select>
+													</div>
+													<div class="field btn">
+														<div class="btn-layer"></div>
+													<a href="{% url 'patient:dr-pro' %}"><input  type="submit" value="Find"> </a>
+													</div>
+												</form>
+											</div>
+										</div>
+									</div> <br>
+								</div>
+								<div class="modal-footer"><br>
+								</div>
+							</div>
+							<!-- Modal content end -->
+						</div>
+						<!-- Modal end -->
+						<!-- </li> -->
 
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="{% url 'patient:appointment' %}" id="dropdown03"
@@ -225,9 +184,10 @@
 				</div>
 			</div>
 		</nav>
+
 	</header>
 
-
+	{% block content %}
 
 	<section class="page-title bg-1">
 		<div class="overlay"></div>
@@ -237,12 +197,6 @@
 					<div class="block text-center">
 						<span class="text-white">All Department</span>
 						<h1 class="text-capitalize mb-5 text-lg">Care Department</h1>
-
-						<!-- <ul class="list-inline breadcumb-nav">
-            <li class="list-inline-item"><a href="index.html" class="text-white">Home</a></li>
-            <li class="list-inline-item"><span class="text-white">/</span></li>
-            <li class="list-inline-item"><a href="#" class="text-white-50">All Department</a></li>
-          </ul> -->
 					</div>
 				</div>
 			</div>
@@ -262,75 +216,6 @@
 					</div>
 				</div>
 			</div>
-
-			<!-- <div class="row">
-			<div class="col-lg-4 col-md-6 ">
-				<div class="department-block mb-5">
-					<img src="{% static 'images/service/service-1.jpg' %}" alt="" class="img-fluid w-100">
-					<div class="content">
-						<h4 class="mt-4 mb-2 title-color">Opthomology</h4>
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-						<a href="department-single.html" class="read-more">Learn More  <i class="icofont-simple-right ml-2"></i></a>
-					</div>
-				</div>
-			</div> -->
-
-			<!-- <div class="col-lg-4 col-md-6">
-				<div class="department-block mb-5">
-					<img src="{% static 'images/service/service-2.jpg' %}" alt="" class="img-fluid w-100">
-					<div class="content">
-						<h4 class="mt-4 mb-2  title-color">Cardiology</h4>
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-						<a href="department-single.html" class="read-more">Learn More <i class="icofont-simple-right ml-2"></i></a>
-					</div>
-				</div>
-			</div> -->
-
-			<!-- <div class="col-lg-4 col-md-6">
-				<div class="department-block mb-5">
-					<img src="{% static 'images/service/service-3.jpg' %}" alt="" class="img-fluid w-100">
-					<div class="content">
-						<h4 class="mt-4 mb-2 title-color">Dental Care</h4>
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-						<a href="department-single.html" class="read-more">Learn More <i class="icofont-simple-right ml-2"></i></a>
-					</div>
-				</div>
-			</div> -->
-
-
-			<!-- <div class="col-lg-4 col-md-6 ">
-				<div class="department-block  mb-5 mb-lg-0">
-					<img src="{% static 'images/service/service-4.jpg' %}" alt="" class="img-fluid w-100">
-					<div class="content">
-						<h4 class="mt-4 mb-2 title-color">Child Care</h4>
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-						<a href="department-single.html" class="read-more">Learn More <i class="icofont-simple-right ml-2"></i></a>
-					</div>
-				</div>
-			</div> -->
-
-			<!-- <div class="col-lg-4 col-md-6">
-				<div class="department-block mb-5 mb-lg-0">
-					<img src="{% static 'images/service/service-6.jpg' %}" alt="" class="img-fluid w-100">
-					<div class="content">
-						<h4 class="mt-4 mb-2 title-color">Pulmology</h4>
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-						<a href="department-single.html" class="read-more">Learn More <i class="icofont-simple-right ml-2"></i></a>
-					</div>
-				</div>
-			</div> -->
-
-			<!-- <div class="col-lg-4 col-md-6">
-				<div class="department-block mb-5 mb-lg-0">
-					<img src="{% static 'images/service/service-8.jpg' %}" alt="" class="img-fluid w-100">
-					<div class="content">
-						<h4 class="mt-4 mb-2 title-color">Gynecology</h4>
-						<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-						<a href="department-single.html" class="read-more">Learn More <i class="icofont-simple-right ml-2"></i></a>
-					</div>
-				</div>
-			</div> -->
-		</div>
 		</div>
 	</section>
 
@@ -633,11 +518,10 @@
 	</section>
 
 
-
 	<!-- Departments End -->
 
 
-
+	{% endblock %}
 
 
 	<!-- footer Start -->
@@ -776,30 +660,30 @@
 	<script>
 		// Get the modal
 		var modal = document.getElementById("myModal");
-		
+
 		// Get the button that opens the modal
 		var btn = document.getElementById("myBtn");
-		
+
 		// Get the <span> element that closes the modal
 		var span = document.getElementsByClassName("close")[0];
-		
+
 		// When the user clicks the button, open the modal 
-		btn.onclick = function() {
-		  modal.style.display = "block";
+		btn.onclick = function () {
+			modal.style.display = "block";
 		}
-		
+
 		// When the user clicks on <span> (x), close the modal
-		span.onclick = function() {
-		  modal.style.display = "none";
-		}
-		
-		// When the user clicks anywhere outside of the modal, close it
-		window.onclick = function(event) {
-		  if (event.target == modal) {
+		span.onclick = function () {
 			modal.style.display = "none";
-		  }
 		}
-		</script>
+
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function (event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
+	</script>
 
 </body>
 

@@ -23,6 +23,44 @@
 	<!-- Main Stylesheet -->
 	<link rel="stylesheet" href=" {% static 'css/style.css' %}">
 
+	<link rel=”stylesheet” href=”https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css”>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style>
+		/* styling search bar */
+		.search input[type=text] {
+			width: 300px;
+			height: 25px;
+
+			border-radius: 25px;
+			border: none;
+
+		}
+
+		.search form input {
+			border: 1px solid grey;
+		}
+
+		.search {
+			float: right;
+			margin: 7px;
+
+		}
+
+		.search button {
+			background-color: #0074D9;
+			color: #f2f2f2;
+			float: right;
+			padding: 5px 10px;
+			margin-right: 16px;
+			font-size: 12px;
+			border: none;
+			cursor: pointer;
+		}
+	</style>
+
+
 	{% block header %}
 	<!-- Add style tag for individual pages  -->
 	{% endblock %}
@@ -59,51 +97,40 @@
 				<a class="navbar-brand" href="">
 					<img src="{% static 'images/logo.png' %}" alt="" class="img-fluid">
 				</a>
-
-				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain"
+				<!-- <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain"
 					aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="icofont-navigation-menu"></span>
-				</button>
-
+				</button> -->
 				<div class="collapse navbar-collapse" id="navbarmain">
 					<ul class="navbar-nav ml-auto">
 
 						<li class="nav-item active">
-							<a class="nav-link" href="{% url 'com-home' %}">Home</a>
-						</li>
-
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="" id="dropdown03" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false"> Profile <i
-									class="icofont-thin-down"></i></a>
-							<ul class="dropdown-menu" aria-labelledby="dropdown03">
-								<li><a class="dropdown-item" href="{% url 'doctor:dr-pro' %}"> My Profile </a></li>
-								<li><a class="dropdown-item" href=""> Change Password </a></li>
-							</ul>
-						</li>						
-
-						<li class="nav-item active">
-							<a class="nav-link" href=""> Patients </a>
+							<a class="nav-link" href="{% url 'pharmacy: pharm-home' %}">Home</a>
 						</li>
 
 						<li class="nav-item active">
-							<a class="nav-link" href=""> Today's Appointments</a>
+							<a class="nav-link" href=""> Medicines </a>
 						</li>
 
 						<li class="nav-item active">
-							<a class="nav-link" href=""> Prescription </a>
+							<a class="nav-link" href=""> Billing </a>
 						</li>
 
 						<li class="nav-item active">
-							<a class="nav-link" href=""> Schedule </a>
+							<a class="nav-link" href=""> Order </a>
 						</li>
 
 						<li class="nav-item active">
-							<a class="nav-link" href=""> Holidays </a>
+							<div class="search">
+								<form action="#">
+									<input type="text" placeholder=" Search Medicines" name="search">
+								</form>
+							</div>
 						</li>
 
 						<li class="nav-item active">
-							<a class="nav-link" href=""> Calendar </a>
+							<div class="btn-layer"></div>
+							<input type="button" value="Logut">
 						</li>
 
 					</ul>
@@ -115,8 +142,77 @@
 
 	{% block content %}
 
+
+	<section>
+		<div class="container">
+			<div class="row justify-content-center mb-5">
+				<div class="col-lg-7">
+					<div class="text-center title-color">
+						<h3>Pharmacy Bill</h3>
+					</div> 
+
+
+					<section >
+						<div class="container">
+							<div class="row mt-5 mb-3">
+								<div class="col-lg-6">
+									<div class="mt-3">
+										<span> Bill No : <br>
+											ID : <br>
+											Patient Name : <br>
+											Doctor : <br> </span>
+									</div>
+								</div>
+
+								<div class="col-lg-6">
+									<span> Date <br>
+										Pharmacist </span>
+								</div>
+							</div> 
+						</div>
+				</div>
+			</div>
+	</section>
+
+	</div>
+	</div>
+	</div>
+	</section>
+
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<table class="table table-primary table-striped">
+					<tr>
+						<th>Sl No</th>
+						<th> Particulars </th>
+						<th> Pack </th>
+						<th> Mfg </th>
+						<th> Batch No </th>
+						<th> Qty </th>
+						<th> MRP </th>
+						<th> Rate </th>
+						<th> Discount(%) </th>
+						<th> GST(%) </th>
+						<th> Amount </th>
+					</tr>
+					<tr>
+
+					</tr>
+					<tr>
+
+					</tr>
+				</table>
+			</div>
+		</div>
+	</section>
+
+
+
+
 	<!-- Patient  -->
-	<div class="container">
+	<!-- <div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-7 text-center">
 				<button type="button"> Add New </button>
@@ -133,10 +229,10 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<!-- My Appointments  -->
-	<div class="container">
+	<!-- <div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-7 text-center">
 				<div class="mt-5">
@@ -155,10 +251,10 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<!-- Prescription  -->
-	<div class="container">
+	<!-- <div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-7 text-center">
 				<button type="button"> Add New </button>
@@ -174,10 +270,10 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<!-- Schedule  -->
-	<div class="container">
+	<!-- <div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-7 text-center">
 				<button type="button"> Add New </button>
@@ -195,10 +291,10 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	<!-- Holidays  -->
-	<div class="container">
+	<!-- <div class="container">
 		<div class="row justify-content-center">
 			<div class="col-lg-7 text-center">
 				<button type="button"> Add New </button>
@@ -213,7 +309,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 	{% endblock %}
 
