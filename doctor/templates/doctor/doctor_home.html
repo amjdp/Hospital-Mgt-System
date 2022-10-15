@@ -1,5 +1,4 @@
 {% load static %}
-<!-- All other pages extends this page -->
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -24,8 +23,27 @@
 	<!-- Main Stylesheet -->
 	<link rel="stylesheet" href=" {% static 'css/style.css' %}">
 
+	<!-- Logout  -->
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<!-- calendar icon  -->
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
 	{% block header %}
 	<!-- Add style tag for individual pages  -->
+	<style>
+		#pt,
+		#appt {
+			height: 150px;
+			width: 400px;
+			color: white;
+			font-weight: bolder;
+			font-size: x-large;
+		}
+	</style>
 	{% endblock %}
 
 </head>
@@ -67,144 +85,110 @@
 				</button>
 
 				<div class="collapse navbar-collapse" id="navbarmain">
-					<ul class="navbar-nav ml-auto">
+					<ul class="navbar-nav ml-auto" style="align-items: right;">
 
 						<li class="nav-item active">
-							<a class="nav-link" href="{% url 'doctor: dr-home' %}">Home</a>
+							<a class="nav-link" href="{% url 'doctor:dr-home' %}">Home</a>
+						</li>
+
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="" id="dropdown03" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false"> Profile <i
+									class="icofont-thin-down"></i></a>
+							<ul class="dropdown-menu" aria-labelledby="dropdown03">
+								<li><a class="dropdown-item" href="{% url 'doctor:dr-pro' %}"> My Profile </a></li>
+								<li><a class="dropdown-item" href="{% url 'doctor:chg-pwd' %}"> Change Password </a>
+								</li>
+							</ul>
 						</li>
 
 						<li class="nav-item active">
-							<a class="nav-link" href=""> Patients </a>
+							<a class="nav-link" href="../patient"> Patients </a>
 						</li>
 
 						<li class="nav-item active">
-							<a class="nav-link" href=""> Today's Appointments</a>
+							<a class="nav-link" href="../appointment"> Today's Appointments</a>
 						</li>
 
 						<li class="nav-item active">
-							<a class="nav-link" href=""> Prescription </a>
+							<a class="nav-link" href="../prescription"> Prescription </a>
 						</li>
 
 						<li class="nav-item active">
-							<a class="nav-link" href=""> Schedule </a>
+							<a class="nav-link" href="{% url 'com-home' %}"> <span class="material-symbols-rounded">
+									logout
+								</span> </a>
 						</li>
-
-						<li class="nav-item active">
-							<a class="nav-link" href=""> Holidays </a>
-						</li>
-
-						<li class="nav-item active">
-							<a class="nav-link" href=""> Calendar </a>
-						</li>
-
 					</ul>
 				</div>
 			</div>
 		</nav>
 	</header>
+	<br>
 
 
 	{% block content %}
 
-	<!-- Patient  -->
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-7 text-center">
-				<button type="button"> Add New </button>
-				<div class="mt-5">
-					<table class="table table-primary table-striped">
-						<tr>
-							<th> Date </th>
-							<th> Patient ID </th>
-							<th> Patient </th>
-							<th> Status </th>
-							<th> Options </th>
-						</tr>
-					</table>
+	<section>
+		<div class="container">
+		<div class="row">
+				
+				<div class="col-5">
+					<div class="card">
+						<div class="card-body">
+							This is some text within a card body.
+						</div>
+					</div>
 				</div>
+				<div class="col-5">
+					<div class="card">
+						<div class="card-body">
+							This is some text within a card body.
+						</div>
+					</div>
+				
 			</div>
 		</div>
 	</div>
+	</section>
 
-	<!-- My Appointments  -->
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-7 text-center">
-				<div class="mt-5">
-					<table class="table table-primary table-striped">
-						<tr>
-							<th> Sl No </th>
-							<th> Patient ID </th>
-							<th> Patient </th>
-							<th> Doctor </th>
-							<th> Date </th>
-							<th> Time </th>
-							<th> Remarks </th>
-							<th> Status </th>
-						</tr>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
 
-	<!-- Prescription  -->
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-7 text-center">
-				<button type="button"> Add New </button>
-				<div class="mt-5">
-					<table class="table table-primary table-striped">
-						<tr>
-							<th> Date </th>
-							<th> Patient </th>
-							<th> Medicine </th>
-							<th> Options </th>
-						</tr>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
 
-	<!-- Schedule  -->
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-7 text-center">
-				<button type="button"> Add New </button>
-				<div class="mt-5">
-					<table class="table table-primary table-striped">
-						<tr>
-							<th> # </th>
-							<th> Weekday </th>
-							<th> Start Time </th>
-							<th> End Time </th>
-							<th> Duration </th>
-							<th> Options </th>
-						</tr>
-					</table>
-				</div>
-			</div>
-		</div>
-	</div>
 
-	<!-- Holidays  -->
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-lg-7 text-center">
-				<button type="button"> Add New </button>
-				<div class="mt-5">
-					<table class="table table-primary table-striped">
-						<tr>
-							<th> # </th>
-							<th> Date </th>
-							<th> Options </th>
-						</tr>
-					</table>
+
+	<section class="fetaure-page mt-5">
+		<div class="container">
+			<div class="row">
+				<div class="container overflow-hidden">
+					<div class="row gx-5">
+						<div class="col">
+							<div class="p-3 border bg-primary-dark" id="appt">
+								1 <br><br>
+								Appointments
+							</div>
+						</div>
+						<div class="col">
+							<div class="p-3 border bg-primary-dark" id="pt">
+								5 <br><br>
+								Patient under you
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</section>
+	<section class="section awards">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-4">
+					<h2 class="title-color"></h2>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
 
 	{% endblock %}
 

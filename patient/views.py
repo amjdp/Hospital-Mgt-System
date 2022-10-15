@@ -28,6 +28,15 @@ def dr_profile(request):
 def my_profile(request):
     return render(request,'patient/my-profile.html')
 
+def pt_login(request):
+    return render(request,'patient/pt_login.html')
+
+def reg(request):
+    return render(request,'patient/register.html')
+    
+def hello(request):
+    return render(request,'patient/hello.html')
+
 
 
     

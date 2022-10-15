@@ -23,6 +23,110 @@
 	<!-- Main Stylesheet -->
 	<link rel="stylesheet" href=" {% static 'css/style.css' %}">
 	<link rel="stylesheet" href=" {% static 'css/dr-profile-modal.css' %}">
+	<link rel="stylesheet" href=" {% static 'css/patient_home.css' %}">
+
+	<!-- Logout  -->
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+	<style>
+		.material-symbols-rounded {
+			font-variation-settings:
+				'FILL' 0,
+				'wght' 400,
+				'GRAD' 0,
+				'opsz' 48
+		}
+
+		/* regn appt div  */
+
+		a.button {
+			display: inline-block;
+			width: 250px;
+			height: 50px;
+			background-color: rgb(222, 223, 229);
+			color: #fff;
+			line-height: 50px;
+			text-align: center;
+			text-decoration: none;
+		}
+
+		a.active {
+			background-color: rgb(108, 141, 212);
+		}
+
+		.content {
+			margin-top: 30px;
+		}
+
+		/* div[class*="content-"] {
+			display: none;
+		} */
+
+		div.active {
+			display: block;
+		}
+
+		/* regn appt div end */
+
+
+		.pt_container {
+			width: 80%;
+			margin-left: 10%;
+			height: 20%;
+		}
+
+		.block .pt {
+			color: white;
+			padding-left: 10%;
+		}
+
+		.pt_reg {
+			width: 80%;
+			height: 200px;
+			margin-left: 10%;
+		}
+
+		#rg h3,
+		#apt h3 {
+			display: inline;
+		}
+
+		.content .content-1 h3 {
+			display: inline;
+		}
+
+		.content .content-2 h3 {
+			display: inline;
+		}
+
+		.content .content-1,
+		.content .content-2 {
+			font-family: Georgia, 'Times New Roman', Times, serif;
+			font-size: x-large;
+			font-weight: bold;
+		}
+
+		#rg-div,
+		#apt-div {
+			height: 70px;
+			width: 47%;
+			background-color: white;
+			padding-left: 50px;
+			padding-top: 12px;
+		}
+
+		#rg_div {
+			position: absolute;
+			z-index: -1;
+		}
+
+		/* #apt-div {
+			display: none;
+		} */
+	</style>
 
 	{% block header %}
 	<!-- Add style tag for individual pages  -->
@@ -70,7 +174,7 @@
 				<div class="collapse navbar-collapse" id="navbarmain">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item active">
-							<a class="nav-link" href="{% url 'patient: phome' %}">Home</a>
+							<a class="nav-link" href="{% url 'patient:phome' %}">Home</a>
 						</li>
 						<li class="nav-item"><a class="nav-link" href="{% url 'patient:bookings' %}">My Bookings</a>
 						</li>
@@ -81,7 +185,8 @@
 									class="icofont-thin-down"></i></a>
 							<ul class="dropdown-menu" aria-labelledby="dropdown03">
 								<li><a class="dropdown-item" href="{% url 'patient:my-pro' %}"> My Profile </a></li>
-								<li><a class="dropdown-item" href=""> Change Password </a></li>
+								<li><a class="dropdown-item" href="{% url 'patient:chg-pwd' %}"> Change Password </a>
+								</li>
 							</ul>
 						</li>
 
@@ -148,8 +253,9 @@
 														</select>
 													</div>
 													<div class="field btn">
-														<div class="btn-layer"></div>
-													<a href="{% url 'patient:dr-pro' %}"><input  type="submit" value="Find"> </a>
+														<div></div>
+														<!-- <input type="submit" value="Signup"> -->
+														<a class="btn btn-primary" href="{% url 'about' %}"> Find </a>
 													</div>
 												</form>
 											</div>
@@ -180,6 +286,12 @@
 							<a class="nav-link" href="{% url 'patient:prescriptions' %}">Prescriptions</a>
 						</li>
 
+						<li class="nav-item active">
+							<a class="nav-link" href="{% url 'com-home' %}"> <span class="material-symbols-rounded">
+									logout
+								</span> </a>
+						</li>
+
 					</ul>
 				</div>
 			</div>
@@ -189,337 +301,51 @@
 
 	{% block content %}
 
-	<section class="page-title bg-1">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="block text-center">
-						<span class="text-white">All Department</span>
-						<h1 class="text-capitalize mb-5 text-lg">Care Department</h1>
-					</div>
+	<div class="pt_container bg-primary-dark">
+		<div class="row mb-5 mt-5">
+			<div class="col-lg-10">
+				<div class="block">
+					<h1 class="text-capitalize mt-5 mb-5 text-lg pt">Welcome Patient Name</h1>
 				</div>
 			</div>
 		</div>
-	</section>
+	</div>
 
+	<div class="pt_reg gray-bg mb-5">
+		<div class="row">
+			<div class="col-lg-10">
+				<div Class="button-wrap mb-2 mt-4 ml-4 ">
+					<!-- <a href="#" class="button mr-3" id="rg">
+						<h3> Registration History </h3> &emsp;
+					</a> -->
+					<a href="#" class="button" id="apt">
+						<h3> Appointment </h3>
+					</a>
+				</div>
 
-	<section class="section service-2">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-7 text-center">
-					<div class="section-title">
-						<h2>Welcome to our patients and visitor's portal</h2>
-						<div class="divider mx-auto my-4"></div>
-						<p>A one stop forum to comprehensively and preemptively answer all the doubts you have and might
-							have. The information is designed in a way to answer all your initial questions.</p>
+				<div class="content">
+					<!-- <div class="content-1 active ml-4" id="rg-div">
+						You are with us from 04/06/2022
+					</div> -->
+
+					<div class="content-2 ml-4" id="apt-div">
+						Last appointment taken on 09/09/2022
 					</div>
 				</div>
+
+				<!-- <script>
+					$(document).ready(function () {
+						// $('#apt').click(function () {
+						// 	$('#rg-div').hide()
+						// });
+						$('#apt').click(function () {
+							$('#appt_record').show()
+						});
+					})
+				</script> -->
 			</div>
 		</div>
-	</section>
-
-
-	<!-- doctors portfolio -->
-
-	<section class="section doctors gray-bg">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-6 text-center">
-					<div class="section-title">
-						<h2>Doctors</h2>
-						<div class="divider mx-auto my-4"></div>
-						<p>We provide a wide range of creative services adipisicing elit. Autem maxime rem modi eaque,
-							voluptate. Beatae officiis neque </p>
-					</div>
-				</div>
-			</div>
-
-			<div class="col-12 text-center  mb-5">
-				<div class="btn-group btn-group-toggle " data-toggle="buttons">
-					<label class="btn active ">
-						<input type="radio" name="shuffle-filter" value="all" checked="checked" />All Department
-					</label>
-					<label class="btn ">
-						<input type="radio" name="shuffle-filter" value="cat1" />Cardiology
-					</label>
-					<label class="btn">
-						<input type="radio" name="shuffle-filter" value="cat2" />Dental
-					</label>
-					<label class="btn">
-						<input type="radio" name="shuffle-filter" value="cat3" />Neurology
-					</label>
-					<label class="btn">
-						<input type="radio" name="shuffle-filter" value="cat4" />Medicine
-					</label>
-					<label class="btn">
-						<input type="radio" name="shuffle-filter" value="cat5" />Pediatric
-					</label>
-					<label class="btn">
-						<input type="radio" name="shuffle-filter" value="cat6" />Traumatology
-					</label>
-				</div>
-			</div>
-
-			<div class="row shuffle-wrapper portfolio-gallery">
-				<div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item"
-					data-groups="[&quot;cat1&quot;,&quot;cat2&quot;]">
-					<div class="position-relative doctor-inner-box">
-						<div class="doctor-profile">
-							<div class="doctor-img">
-								<img src="{% static 'images/team/1.jpg' %}" alt="doctor-image" class="img-fluid w-100">
-							</div>
-						</div>
-						<div class="content mt-3">
-							<h4 class="mb-0"><a href="{% url 'dr-single' %}">Thomas Henry</a></h4>
-							<p>Cardiology</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item" data-groups="[&quot;cat2&quot;]">
-					<div class="position-relative doctor-inner-box">
-						<div class="doctor-profile">
-							<div class="doctor-img">
-								<img src="{% static 'images/team/2.jpg' %}" alt="doctor-image" class="img-fluid w-100">
-							</div>
-						</div>
-						<div class="content mt-3">
-							<h4 class="mb-0"><a href="{% url 'dr-single' %}">Harrision Samuel</a></h4>
-							<p>Radiology</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item" data-groups="[&quot;cat3&quot;]">
-					<div class="position-relative doctor-inner-box">
-						<div class="doctor-profile">
-							<div class="doctor-img">
-								<img src="{% static 'images/team/3.jpg' %}" alt="doctor-image" class="img-fluid w-100">
-							</div>
-						</div>
-						<div class="content mt-3">
-							<h4 class="mb-0"><a href="{% url 'dr-single' %}">Alexandar James</a></h4>
-							<p>Dental</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item"
-					data-groups="[&quot;cat3&quot;,&quot;cat4&quot;]">
-					<div class="position-relative doctor-inner-box">
-						<div class="doctor-profile">
-							<div class="doctor-img">
-								<img src="{% static 'images/team/4.jpg' %}" alt="doctor-image" class="img-fluid w-100">
-							</div>
-						</div>
-						<div class="content mt-3">
-							<h4 class="mb-0"><a href="{% url 'dr-single' %}">Edward john</a></h4>
-							<p>Pediatry</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item" data-groups="[&quot;cat5&quot;]">
-					<div class="position-relative doctor-inner-box">
-						<div class="doctor-profile">
-							<div class="doctor-img">
-								<img src="{% static 'images/team/1.jpg' %}" alt="doctor-image" class="img-fluid w-100">
-							</div>
-						</div>
-						<div class="content mt-3">
-							<h4 class="mb-0"><a href="{% url 'dr-single' %}">Thomas Henry</a></h4>
-							<p>Neurology</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item" data-groups="[&quot;cat6&quot;]">
-					<div class="position-relative doctor-inner-box">
-						<div class="doctor-profile">
-							<div class="doctor-img">
-								<img src="{% static 'images/team/3.jpg' %}" alt="doctor-image" class="img-fluid w-100">
-							</div>
-						</div>
-						<div class="content mt-3">
-							<h4 class="mb-0"><a href="{% url 'dr-single' %}">Henry samuel</a></h4>
-							<p>Palmology</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item" data-groups="[&quot;cat4&quot;]">
-					<div class="position-relative doctor-inner-box">
-						<div class="doctor-profile">
-							<div class="doctor-img">
-								<img src="{% static 'images/team/1.jpg' %}" alt="doctor-image" class="img-fluid w-100">
-							</div>
-						</div>
-						<div class="content mt-3">
-							<h4 class="mb-0"><a href="{% url 'dr-single' %}">Thomas alexandar</a></h4>
-							<p>Cardiology</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item"
-					data-groups="[&quot;cat5&quot;,&quot;cat6&quot;,&quot;cat1&quot;]">
-					<div class="position-relative doctor-inner-box">
-						<div class="doctor-profile">
-							<div class="doctor-img">
-								<img src="{% static 'images/team/3.jpg' %}" alt="doctor-image" class="img-fluid w-100">
-							</div>
-						</div>
-						<div class="content mt-3">
-							<h4 class="mb-0"><a href="{% url 'dr-single' %}">HarissonThomas </a></h4>
-							<p>Traumatology</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item illustration" data-groups="[&quot;cat2&quot;]">
-					<div class="position-relative doctor-inner-box">
-						<div class="doctor-profile">
-							<div class="doctor-img">
-								<img src="{% static 'images/team/4.jpg' %}" alt="doctor-image" class="img-fluid w-100">
-							</div>.jpg
-						</div>
-						<div class="content mt-3">
-							<h4 class="mb-0"><a href="{% url 'dr-single' %}">Jonas Thomson</a></h4>
-							<p>Cardiology</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item"
-					data-groups="[&quot;cat5&quot;,&quot;cat6&quot;,&quot;cat1&quot;]">
-					<div class="position-relative doctor-inner-box">
-						<div class="doctor-profile">
-							<div class="doctor-img">
-								<img src="{% static 'images/team/3.jpg' %}" alt="doctor-image" class="img-fluid w-100">
-							</div>
-						</div>
-						<div class="content mt-3">
-							<h4 class="mb-0"><a href="{% url 'dr-single' %}">Henry Forth</a></h4>
-							<p>hematology</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-3 col-sm-6 col-md-6 mb-4 shuffle-item illustration" data-groups="[&quot;cat2&quot;]">
-					<div class="position-relative doctor-inner-box">
-						<div class="doctor-profile">
-							<div class="doctor-img">
-								<img src="{% static 'images/team/4.jpg' %}" alt="doctor-image" class="img-fluid w-100">
-							</div>
-						</div>
-						<div class="content mt-3">
-							<h4 class="mb-0"><a href="{% url 'dr-single' %}">Thomas Henry</a></h4>
-							<p>Dental</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-
-
-	<!-- Departments -->
-
-
-	<section class="section doctors">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-6 text-center">
-					<div class="section-title">
-						<h2>Departments</h2>
-						<div class="divider mx-auto my-4"></div>
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-lg-4 col-md-6 ">
-					<div class="department-block mb-5">
-						<img src="{% static 'images/service/service-1.jpg' %}" alt="" class="img-fluid w-100">
-						<div class="content">
-							<h4 class="mt-4 mb-2 title-color">Opthomology</h4>
-							<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-							<a href="department-single.html" class="read-more">Learn More <i
-									class="icofont-simple-right ml-2"></i></a>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-md-6">
-					<div class="department-block mb-5">
-						<img src="{% static 'images/service/service-2.jpg' %}" alt="" class="img-fluid w-100">
-						<div class="content">
-							<h4 class="mt-4 mb-2  title-color">Cardiology</h4>
-							<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-							<a href="department-single.html" class="read-more">Learn More <i
-									class="icofont-simple-right ml-2"></i></a>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-md-6">
-					<div class="department-block mb-5">
-						<img src="{% static 'images/service/service-3.jpg' %}" alt="" class="img-fluid w-100">
-						<div class="content">
-							<h4 class="mt-4 mb-2 title-color">Dental Care</h4>
-							<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-							<a href="department-single.html" class="read-more">Learn More <i
-									class="icofont-simple-right ml-2"></i></a>
-						</div>
-					</div>
-				</div>
-
-
-				<div class="col-lg-4 col-md-6 ">
-					<div class="department-block  mb-5 mb-lg-0">
-						<img src="{% static 'images/service/service-4.jpg' %}" alt="" class="img-fluid w-100">
-						<div class="content">
-							<h4 class="mt-4 mb-2 title-color">Child Care</h4>
-							<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-							<a href="department-single.html" class="read-more">Learn More <i
-									class="icofont-simple-right ml-2"></i></a>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-md-6">
-					<div class="department-block mb-5 mb-lg-0">
-						<img src="{% static 'images/service/service-6.jpg' %}" alt="" class="img-fluid w-100">
-						<div class="content">
-							<h4 class="mt-4 mb-2 title-color">Pulmology</h4>
-							<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-							<a href="department-single.html" class="read-more">Learn More <i
-									class="icofont-simple-right ml-2"></i></a>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-4 col-md-6">
-					<div class="department-block mb-5 mb-lg-0">
-						<img src="{% static 'images/service/service-8.jpg' %}" alt="" class="img-fluid w-100">
-						<div class="content">
-							<h4 class="mt-4 mb-2 title-color">Gynecology</h4>
-							<p class="mb-4">Saepe nulla praesentium eaque omnis perferendis a doloremque.</p>
-							<a href="department-single.html" class="read-more">Learn More <i
-									class="icofont-simple-right ml-2"></i></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-
-	<!-- Departments End -->
-
+	</div>
 
 	{% endblock %}
 
@@ -656,6 +482,12 @@
 
 	<script src=" {% static 'js/script.js' %}"></script>
 	<script src=" {% static 'js/contact.js' %}"></script>
+
+	<script>
+
+	</script>
+
+
 
 	<script>
 		// Get the modal
