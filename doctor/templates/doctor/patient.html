@@ -2,13 +2,20 @@
 {% load static %}
 
 {% block header %}
+
+<style>
+#patient_data{
+	min-height: 400px;
+}
+</style>
+
 {% endblock %}
 
 
 {% block content %}
 
 	<!-- Patient  -->
-	<div class="container">
+	<div class="container" id="patient_data">
 		<div class="row justify-content-center">
 			<div class="col-lg-7 text-center">
 				<button type="button"> Add New </button>

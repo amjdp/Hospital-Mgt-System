@@ -25,8 +25,20 @@ def login(request):
 def dept_single(request):
     return render(request,'common/department-single.html')
 
-def doc_single(request):
-    return render(request,'common/doctor-single.html')
+def doc_1(request):
+    return render(request,'common/doctor_1.html')
+
+def doc_2(request):
+    return render(request,'common/doctor_2.html')
+
+def doc_3(request):
+    return render(request,'common/doctor_3.html')
+
+def doc_4(request):
+    return render(request,'common/doctor_4.html')
+
+def doc_5(request):
+    return render(request,'common/doctor_5.html')
 
 def doc(request):
     return render(request,'common/hms_doctor.html')
@@ -39,3 +51,12 @@ def blog_sidebar(request):
 
 def blog_single(request):
     return render(request,'common/blog-single.html')
+
+def login_b(request):
+    return render(request,'common/login_base.html')
+
+def login(request):
+    return render(request,'common/login.html')
+
+def demo(request):
+    return render(request,'common/demo-dept.html')

@@ -22,11 +22,11 @@ def prescriptions(request):
 def chpass(request):
     return render(request,'patient/change-password.html')
 
-def dr_profile(request):
-    return render(request,'patient/dr_profile.html')
+def pt_profile(request):
+    return render(request,'patient/patient_profile.html')
 
-def my_profile(request):
-    return render(request,'patient/my-profile.html')
+def pt_profile(request):
+    return render(request,'patient/pt-profile.html')
 
 def pt_login(request):
     return render(request,'patient/pt_login.html')
@@ -37,6 +37,25 @@ def reg(request):
 def hello(request):
     return render(request,'patient/hello.html')
 
+def app(request):
+    return render(request,'patient/appointment_new.html')
 
+def edit(request):
+    return render(request,'patient/edit_profile.html')
+
+def appt(request):
+    return render(request,'patient/new_appt.html')
+
+def appt_1(request):
+    return render(request,'patient/appt_1.html')
+
+def appt_2(request):
+    return render(request,'patient/appt_2.html')
+
+def appt_3(request):
+    return render(request,'patient/appt_3.html')
+
+def appt_4(request):
+    return render(request,'patient/appt_4.html')
 
     

@@ -61,7 +61,7 @@
 
 		<nav class="navbar navbar-expand-lg navigation" id="navbar">
 			<div class="container">
-				<a class="navbar-brand" href="{% url 'com-home' %}">
+				<a class="navbar-brand" href="{% url 'common:com-home' %}">
 					<img src="{% static 'images/logo.png' %}" alt="" class="img-fluid">
 				</a>
 
@@ -73,83 +73,51 @@
 				<div class="collapse navbar-collapse" id="navbarmain">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item active">
-							<a class="nav-link" href="{% url 'com-home' %}">Home</a>
+							<a class="nav-link" href="{% url 'common:com-home' %}">Home</a>
 						</li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About</a></li>
-						<li class="nav-item"><a class="nav-link" href="{% url 'services' %}">Services</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'common:about' %}">About</a></li>
+						<li class="nav-item"><a class="nav-link" href="{% url 'common:services' %}">Services</a></li>
 
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="{% url 'depts' %}" id="dropdown02"
+							<a class="nav-link dropdown-toggle" href="{% url 'common:depts' %}" id="dropdown02"
 								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Department <i
 									class="icofont-thin-down"></i></a>
 							<ul class="dropdown-menu" aria-labelledby="dropdown02">
-								<li><a class="dropdown-item" href="{% url 'dept-single' %}">Heart care</a></li>
-								<li><a class="dropdown-item" href="{% url 'dept-single' %}">Women care</a></li>
-								<li><a class="dropdown-item" href="{% url 'dept-single' %}">child care</a></li>
-								<li><a class="dropdown-item" href="{% url 'dept-single' %}">Neuro Science</a></li>
-								<li><a class="dropdown-item" href="{% url 'dept-single' %}">Liver and gastro science</a></li>
-								<li><a class="dropdown-item" href="{% url 'dept-single' %}">orthopaedics</a></li>
-								<li><a class="dropdown-item" href="{% url 'dept-single' %}">Renal Care </a></li>
-								<li><a class="dropdown-item" href="{% url 'dept-single' %}">Endocrine sciences </a></li>
-								<li><a class="dropdown-item" href="{% url 'dept-single' %}">psychiatry </a></li>
-								<li><a class="dropdown-item" href="{% url 'dept-single' %}">Surgical oncology </a></li>
-								<li><a class="dropdown-item" href="{% url 'dept-single' %}">Anaesthesiology </a></li>
-								<li><a class="dropdown-item" href="{% url 'dept-single' %}">Radiology </a></li>
-								<li><a class="dropdown-item" href="{% url 'dept-single' %}"> Dermatology</a></li>
-								<li><a class="dropdown-item" href="{% url 'dept-single' %}"> Blood Bank</a></li>
+								<li><a class="dropdown-item" href="{% url 'common:dept-single' %}">Heart care</a></li>
+								<li><a class="dropdown-item" href="{% url 'common:dept-single' %}">Women care</a></li>
+								<li><a class="dropdown-item" href="{% url 'common:dept-single' %}">child care</a></li>
+								<li><a class="dropdown-item" href="{% url 'common:dept-single' %}">Neuro Science</a></li>
+								<li><a class="dropdown-item" href="{% url 'common:dept-single' %}">Liver and gastro science</a>
+								</li>
+								<li><a class="dropdown-item" href="{% url 'common:dept-single' %}">orthopaedics</a></li>
+								<li><a class="dropdown-item" href="{% url 'common:dept-single' %}">Renal Care </a></li>
+								<li><a class="dropdown-item" href="{% url 'common:dept-single' %}">Endocrine sciences </a></li>
+								<li><a class="dropdown-item" href="{% url 'common:dept-single' %}">psychiatry </a></li>
+								<li><a class="dropdown-item" href="{% url 'common:dept-single' %}">Surgical oncology </a></li>
+								<li><a class="dropdown-item" href="{% url 'common:dept-single' %}">Anaesthesiology </a></li>
+								<li><a class="dropdown-item" href="{% url 'common:dept-single' %}">Radiology </a></li>
+								<li><a class="dropdown-item" href="{% url 'common:dept-single' %}"> Dermatology</a></li>
+								<li><a class="dropdown-item" href="{% url 'common:dept-single' %}"> Blood Bank</a></li>
 							</ul>
 						</li>
 
-						<!-- <li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="{% url 'dr' %}" id="dropdown03"
-								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Doctors <i
-									class="icofont-thin-down"></i></a>
-							<ul class="dropdown-menu" aria-labelledby="dropdown03">
-								<li><a class="dropdown-item" href="{% url 'dr' %}">Find a Doctor </a></li>
-								<li><a class="dropdown-item" href="{% url 'patient:appointment' %}">Appoinment</a></li>
-								<li><a class="dropdown-item" href="{% url 'doctor:dr_login' %}">Login</a></li>
-							</ul>
-						</li> -->
+						<li class="nav-item"><a class="nav-link" href="{% url 'common:contact' %}">Contact</a></li>
+
+						
+						<li class="nav-item"><a class="nav-link" href="{% url 'common:log_b' %}">Login</a></li>	
 
 						<!-- <li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="" id="dropdown03" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false">Patient <i class="icofont-thin-down"></i></a>
-							<ul class="dropdown-menu" aria-labelledby="dropdown03">
-								<li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
-								<li><a class="dropdown-item" href="{% url 'login' %}">Register</a></li>
-							</ul>
-						</li> -->
-
-
-						<!-- <li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="" id="dropdown03" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false"> Staff <i class="icofont-thin-down"></i></a>
-							<ul class="dropdown-menu" aria-labelledby="dropdown03">
-								<li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
-							</ul>
-						</li> -->
-
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="" id="dropdown05" data-toggle="dropdown"
-								aria-haspopup="true" aria-expanded="false">Blog <i class="icofont-thin-down"></i></a>
-							<ul class="dropdown-menu" aria-labelledby="dropdown05">
-								<li><a class="dropdown-item" href="">Blog with Sidebar</a></li>
-
-								<li><a class="dropdown-item" href="">Blog Single</a></li>
-							</ul>
-						</li>
-
-						<li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact</a></li>
-
-						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="" id="dropdown05" data-toggle="dropdown"
 								aria-haspopup="true" aria-expanded="false">Login <i class="icofont-thin-down"></i></a>
 							<ul class="dropdown-menu" aria-labelledby="dropdown05">
 								<li><a class="dropdown-item" href="{% url 'doctor:dr_login' %}">Doctor</a></li>
-								<li><a class="dropdown-item" href="{% url 'patient:hello' %}">Patient</a></li>
-								<li><a class="dropdown-item" href="">Receptionist</a></li>
+								<li><a class="dropdown-item" href="{% url 'patient:pt_login' %}">Patient</a></li>
+								
+								<li><a class="dropdown-item" href="">Staff</a></li>
 							</ul>
-						</li>
+						</li> -->
+
+						<li class="nav-item"><a class="nav-link" href="{% url 'patient:pt_reg' %}">SignUp</a></li>						
 					</ul>
 				</div>
 			</div>
@@ -159,6 +127,7 @@
 
 	{% block content %}
 
+	
 
 	{% endblock %}
 
@@ -298,6 +267,7 @@
 	<script src=" {% static 'js/contact.js' %}"></script>
 
 	<script src=" {% static 'js/modal.js' %}"></script>
+
 
 </body>
 

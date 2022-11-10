@@ -43,6 +43,28 @@
   <script src="{% static 'assets/js/config.js' %}"></script>
 
 
+  <style>
+    .layout_container{
+      margin-top: 50px;
+      margin-left: 5%;
+      height: 1000px;
+      width: 100%;
+     
+      
+    }
+    .content-wrapper{
+      margin-top: 50px;
+    }
+    .layout-wrapper{
+      background-color: rgb(247, 244, 244);
+      width: 100%;
+      height: auto;
+      margin-left: 15px;
+    }
+    
+  </style>
+
+
   {% block header %}
   <!-- Add style tag for individual pages  -->
   {% endblock %}
@@ -54,12 +76,13 @@
   <!-- Layout wrapper -->
   <div class="layout-wrapper layout-content-navbar">
     <div class="layout-container">
-      <!-- Menu -->
 
+
+      <!-- Menu -->
       <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
         <div class="app-brand demo">
           <a href="index.html" class="app-brand-link">
-            <!-- <span class="app-brand-logo demo">
+            <span class="app-brand-logo demo">
               <svg width="25" viewBox="0 0 25 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
                 xmlns:xlink="http://www.w3.org/1999/xlink">
                 <defs>
@@ -102,9 +125,7 @@
                   </g>
                 </g>
               </svg>
-            </span> -->
-            <span class="app-brand-text demo menu-text fw-bolder ms-2"> <img src="{% static 'assets/img/logo.png' %}"
-                alt="" class="img-fluid"></span>
+            </span>
           </a>
 
           <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -115,6 +136,7 @@
         <div class="menu-inner-shadow"></div>
 
         <ul class="menu-inner py-1">
+
           <!-- Dashboard -->
           <li class="menu-item active">
             <a href="index.html" class="menu-link">
@@ -122,42 +144,6 @@
               <div data-i18n="Analytics">Dashboard</div>
             </a>
           </li>
-
-          <!-- Layouts -->
-          <!-- <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Layouts</div>
-              </a> -->
-
-          <!-- <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="layouts-without-menu.html" class="menu-link">
-                    <div data-i18n="Without menu">Without menu</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-without-navbar.html" class="menu-link">
-                    <div data-i18n="Without navbar">Without navbar</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-container.html" class="menu-link">
-                    <div data-i18n="Container">Container</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-fluid.html" class="menu-link">
-                    <div data-i18n="Fluid">Fluid</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="layouts-blank.html" class="menu-link">
-                    <div data-i18n="Blank">Blank</div>
-                  </a>
-                </li>
-              </ul> -->
-          <!-- </li> -->
 
           <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Profile</span>
@@ -168,51 +154,12 @@
               <div data-i18n="Account Settings">Admin Profile</div>
             </a>
           </li>
-
           <li class="menu-item">
             <a href="{% url 'hms_admin:chg_pwd' %}" class="menu-link">
               <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
               <div data-i18n="Authentications">Change Password</div>
             </a>
           </li>
-          <!-- <li class="menu-item">
-            <a href="{% url 'hms_admin:adm_add' %}" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-              <div data-i18n="Authentications">Add Admin</div>
-            </a>
-          </li>
-
-          <li class="menu-item">
-            <a href="{% url 'hms_admin:adm_view' %}" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-              <div data-i18n="Authentications">View Admin</div>
-            </a>
-          </li> -->
-
-          <!-- <li class="menu-item">
-            <a href="javascript:void(0);" class="menu-link menu-toggle">
-              <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
-              <div data-i18n="Authentications">Holidays</div>
-            </a>
-            <ul class="menu-sub">
-                <li class="menu-item">
-                  <a href="auth-login-basic.html" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Login</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="auth-register-basic.html" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Register</div>
-                  </a>
-                </li>
-                <li class="menu-item">
-                  <a href="auth-forgot-password-basic.html" class="menu-link" target="_blank">
-                    <div data-i18n="Basic">Forgot Password</div>
-                  </a>
-                </li>
-              </ul>
-          </li> -->
-
 
           <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Appointment</span>
@@ -224,18 +171,7 @@
             </a>
           </li>
 
-
-
-          <!-- Components -->
           <li class="menu-header small text-uppercase"><span class="menu-header-text">Doctor</span></li>
-          <!-- Cards -->
-          <!-- <li class="menu-item">
-              <a href="cards-basic.html" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-collection"></i>
-                <div data-i18n="Basic">All Customers</div>
-              </a>
-            </li> -->
-
           <li class="menu-item">
             <a href="{% url 'hms_admin:add_dr' %}" class="menu-link">
               <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
@@ -248,21 +184,10 @@
               <div data-i18n="Authentications">View Doctor</div>
             </a>
           </li>
-          <!-- User interface -->
 
-
-          <!-- Forms & Tables -->
           <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Patients</span>
           </li>
-          <!-- Forms -->
-          <!-- <li class="menu-item">
-            <a href="{% url 'hms_admin:add_pt' %}" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-detail"></i>
-              <div data-i18n="Form Elements">Patient Details</div>
-            </a>
-          </li> -->
-          
           <li class="menu-item">
             <a href="{% url 'hms_admin:view_pt' %}" class="menu-link">
               <i class="menu-icon tf-icons bx bx-detail"></i>
@@ -270,12 +195,9 @@
             </a>
           </li>
 
-
-
           <li class="menu-header small text-uppercase">
             <span class="menu-header-text">Services</span>
           </li>
-          <!-- Forms -->
           <li class="menu-item">
             <a href="{% url 'hms_admin:add_dt' %}" class="menu-link">
               <i class="menu-icon tf-icons bx bx-detail"></i>
@@ -289,47 +211,13 @@
             </a>
           </li>
 
+        </ul>
 
-
-
-          <!-- Tables -->
-
-          <!-- <li class="menu-item">
-            <a href="tables-basic.html" class="menu-link">
-              <i class="menu-icon tf-icons bx bx-table"></i>
-              <div data-i18n="Tables">Tables</div>
-            </a>
-          </li> -->
-
-
-          <!-- Misc -->
-          <!-- <li class="menu-header small text-uppercase"><span class="menu-header-text">Misc</span></li>
-            <li class="menu-item">
-              <a
-                href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                target="_blank"
-                class="menu-link"
-              >
-                <i class="menu-icon tf-icons bx bx-support"></i>
-                <div data-i18n="Support">Support</div>
-              </a>
-            </li>
-            <li class="menu-item">
-              <a
-                href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-                target="_blank"
-                class="menu-link"
-              >
-                <i class="menu-icon tf-icons bx bx-file"></i>
-                <div data-i18n="Documentation">Documentation</div>
-              </a>
-            </li>
-          </ul> -->
       </aside>
-      <!-- / Menu -->
+      <!-- Menu -->
 
       <!-- Layout container -->
-      <div class="layout-page">
+      <div class="layout_container">
         <!-- Navbar -->
 
         <nav
@@ -342,6 +230,7 @@
           </div>
 
           <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+
             <!-- Search -->
             <div class="navbar-nav align-items-center">
               <div class="nav-item d-flex align-items-center">
@@ -353,14 +242,6 @@
             <!-- /Search -->
 
             <ul class="navbar-nav flex-row align-items-center ms-auto">
-              <!-- Place this tag where you want the button to render. -->
-              <!-- <li class="nav-item lh-1 me-3">
-                <a class="github-button" href="https://github.com/themeselection/sneat-html-admin-template-free"
-                  data-icon="octicon-star" data-size="large" data-show-count="true"
-                  aria-label="Star themeselection/sneat-html-admin-template-free on GitHub">Star</a>
-              </li> -->
-
-              <!-- User -->
               <li class="nav-item navbar-dropdown dropdown-user dropdown">
                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
                   <div class="avatar avatar-online">
@@ -423,8 +304,9 @@
             </ul>
           </div>
         </nav>
-
         <!-- / Navbar -->
+
+
 
         <!-- Content wrapper -->
         <div class="content-wrapper">
@@ -444,10 +326,10 @@
 
             </div>
 
-
-
           </div>
           <!-- / Content -->
+
+
 
           <!-- Footer -->
           <footer class="content-footer footer bg-footer-theme">
@@ -494,6 +376,8 @@
   <script src=" {% static 'assets/js/add_admin.js' %}"></script>
   <script src=" {% static 'assets/js/add_doctor.js' %}"></script>
   <script src=" {% static 'assets/js/add_patient.js' %}"></script>
+  <script src=" {% static 'assets/js/home.js' %}"></script>
+  <script src=" {% static 'assets/js/home.js' %}"></script>
 
 </body>
 

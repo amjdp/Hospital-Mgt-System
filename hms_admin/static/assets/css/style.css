@@ -1,4 +1,4 @@
-.welcome{
+.welcome {
   text-align: center;
   margin-top: 200px;
   font-size: 50px;
@@ -10,7 +10,7 @@
 
 
 
-:root{
+:root {
   --bk: #181826;
   --border: 2px solid var(--bd);
   --col2: #212134;
@@ -20,17 +20,16 @@
   --button: #4945FF;
 }
 
-@media (prefers-color-scheme: light)
-{ 
-:root{
-  --bk: white;
-  --border: 2px solid var(--bd);
-  --col2: #e7e7f0;
-  --bd: white;
-  --cp: #161616;
-  --cp2: #181826;
-  --button: #0051bb;
-}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bk: white;
+    --border: 2px solid var(--bd);
+    --col2: #e7e7f0;
+    --bd: white;
+    --cp: #161616;
+    --cp2: #181826;
+    --button: #0051bb;
+  }
 
 
 }
@@ -55,7 +54,7 @@ html {
   left: 0;
   top: -1rem;
   padding: 0;
-  width: 210px;
+  width: 280px;
   background-color: var(--col2);
   height: 100vh;
   list-style: none;
@@ -163,8 +162,7 @@ fieldset.info p {
   top: 1rem;
   width: calc(100% + 5rem);
 
-  ADMIN
-  Space 
+  /* ADMIN Space */
 }
 
 fieldset.info table {
@@ -227,95 +225,95 @@ fieldset .logo {
 
 @media screen and (max-width: 900px) and (min-width: 600px) {
   html {
-      margin-left: 1rem;
+    margin-left: 1rem;
   }
 
   .menu {
-      display: block;
-      all: unset;
-      margin: 0 30px;
-      overflow: auto;
-  } 
+    display: block;
+    all: unset;
+    margin: 0 30px;
+    overflow: auto;
+  }
 
-.menu li{
+  .menu li {
     list-style: none;
     display: inline-block;
     margin: 5px;
     padding: .5rem 1rem;
     background: var(--bd);
     border-radius: 30px;
-} 
+  }
 
-.menu li:hover {
-  outline: 2px solid white;
-  outline-offset: 2px;
-} 
+  .menu li:hover {
+    outline: 2px solid white;
+    outline-offset: 2px;
+  }
 
-.h {
-  position: absolute;
-  top: 2rem;
-  right: 50px;
+  .h {
+    position: absolute;
+    top: 2rem;
+    right: 50px;
+  }
+
+
 }
-
-
-} 
 
 @media (max-width: 599px) {
   html {
-      margin-left: 0rem;
+    margin-left: 0rem;
   }
 
   .menu {
-      display: block;
-      all: unset;
-      margin: 0 0px;
-      overflow: auto;
-  } 
+    display: block;
+    all: unset;
+    margin: 0 0px;
+    overflow: auto;
+  }
 
-.menu li{
+  .menu li {
     display: none;
-} 
+  }
 
-.menu hr {
-  display: none;
-}
+  .menu hr {
+    display: none;
+  }
 
-.menu::after {
-  font-family: "Font Awesome 5 Free";
-  content: "\f0c9";
-  font-weight: 900;
-  margin-left: 20px;
-  cursor:pointer;
-}
+  .menu::after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f0c9";
+    font-weight: 900;
+    margin-left: 20px;
+    cursor: pointer;
+  }
 
-ul.menu:hover li{
-  display: block;
-  margin-left: 30px;
-}
+  ul.menu:hover li {
+    display: block;
+    margin-left: 30px;
+  }
 
 
 
-.menu li:hover {
-  outline: 2px solid white;
-  outline-offset: 2px;
-} 
+  .menu li:hover {
+    outline: 2px solid white;
+    outline-offset: 2px;
+  }
 
-.h {
-  font-size: 2rem;
-  line-height: 3rem;
-}
+  .h {
+    font-size: 2rem;
+    line-height: 3rem;
+  }
 
-fieldset.info {
-  min-width: calc(100% - 120px);
-  position: relative;
-  line-height: 2rem;
-  padding-left: 6rem;
-}
+  fieldset.info {
+    min-width: calc(100% - 120px);
+    position: relative;
+    line-height: 2rem;
+    padding-left: 6rem;
+  }
 
-fieldset.info .logo{
-  left: .5rem;
-  top: .5rem;
-}
+  fieldset.info .logo {
+    left: .5rem;
+    top: .5rem;
+  }
 
 
 

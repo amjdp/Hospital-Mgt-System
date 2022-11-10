@@ -197,15 +197,15 @@
 			color: #b3b3b3;
 		}
 
-		form .btn {
-			height: 50px;
-			width: 100%;
+		.find  {
+			height: 80px;
+			width: 50%;
 			border-radius: 5px;
 			position: relative;
 			overflow: hidden;
 		}
 
-		form .btn .btn-layer {
+		/* form .btn .btn-layer {
 			height: 100%;
 			width: 300%;
 			position: absolute;
@@ -214,13 +214,14 @@
 			border-radius: 5px;
 			transition: all 0.4s ease;
 			;
-		}
+		} */
 
-		form .btn:hover .btn-layer {
+		/* form .btn:hover .btn-layer {
 			left: 0;
-		}
+		} */
 
-		form .btn input[type="submit"] {
+
+		/* form .btn input[type="submit"] {
 			height: 100%;
 			width: 100%;
 			z-index: 1;
@@ -233,4 +234,4 @@
 			font-size: 20px;
 			font-weight: 500;
 			cursor: pointer;
-		}
+		} */
